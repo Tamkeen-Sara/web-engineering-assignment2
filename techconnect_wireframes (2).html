@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechConnect Pakistan - Wireframes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #e8e8e8;
+            padding: 30px;
+            color: #333;
+            overflow-x: auto;
+        }
+        
+        .wireframe-container {
+            min-width: 1500px;
+            margin: 0 auto;
+        }
+        
+        .wireframe-header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .wireframe-header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #2d3748;
+        }
+        
+        .wireframe-header p {
+            color: #718096;
+            font-size: 16px;
+        }
+        
+        .specs {
+            background: #f7fafc;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid #4299e1;
+        }
+        
+        .specs strong {
+            color: #2d3748;
+        }
+        
+        .page-section {
+            background: white;
+            margin-bottom: 50px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .page-title {
+            background: #2d3748;
+            color: white;
+            padding: 20px 30px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .page-purpose {
+            background: #edf2f7;
+            padding: 15px 30px;
+            font-style: italic;
+            color: #4a5568;
+            border-bottom: 2px solid #cbd5e0;
+        }
+        
+        /* Wireframe Canvas */
+        .wireframe {
+            background: #ffffff;
+            width: 1440px;
+            margin: 0 auto;
+            position: relative;
+            border: 3px solid #a0aec0;
+        }
+        
+        /* Grid Overlay */
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .grid-line {
+            position: absolute;
+            background: rgba(66, 153, 225, 0.1);
+            pointer-events: none;
+        }
+        
+        /* Header Component */
+        .wf-header {
+            height: 72px;
+            background: #f7fafc;
+            border-bottom: 2px solid #cbd5e0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 96px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .wf-logo-box {
+            width: 160px;
+            height: 32px;
+            border: 2px dashed #718096;
+            background: #edf2f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: #4a5568;
+            font-weight: bold;
+        }
+        
+        .wf-search-box {
+            width: 560px;
+            height: 44px;
+            border: 2px solid #a0aec0;
+            background: white;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            font-size: 12px;
+            color: #a0aec0;
+        }
+        
+        .wf-search-icon {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #a0aec0;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .wf-header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .wf-lang-toggle {
+            width: 80px;
+            height: 32px;
+            border: 2px solid #a0aec0;
+            border-radius: 16px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #4a5568;
+        }
+        
+        .wf-link {
+            color: #4a5568;
+            font-size: 12px;
+            text-decoration: underline;
+        }
+        
+        .wf-btn-primary {
+            padding: 10px 20px;
+            background: #cbd5e0;
+            border: 2px solid #718096;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #2d3748;
+        }
+        
+        /* Hero Section */
+        .wf-hero {
+            min-height: 420px;
+            background: #fafafa;
+            border-bottom: 2px solid #e2e8f0;
+            padding: 60px 96px;
+            display: flex;
+            gap: 40px;
+        }
+        
+        .wf-hero-left {
+            flex: 0 0 60%;
+        }
+        
+        .wf-hero-right {
+            flex: 0 0 38%;
+        }
+        
+        .wf-h1-box {
+            width: 90%;
+            height: 40px;
+            background: #cbd5e0;
+            border: 2px dashed #718096;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            font-size: 11px;
+            color: #4a5568;
+        }
+        
+        .wf-subhead-box {
+            width: 75%;
+            height: 24px;
+            background: #e2e8f0;
+            border: 2px dashed #a0aec0;
+            margin-bottom: 30px;
+        }
+        
+        .wf-cta-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .wf-btn-large {
+            padding: 12px 24px;
+            border: 2px solid #718096;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #2d3748;
+        }
+        
+        .wf-btn-orange {
+            background: #cbd5e0;
+        }
+        
+        .wf-btn-outline {
+            background: white;
+        }
+        
+        .wf-stats-row {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .wf-stat-chip {
+            padding: 6px 12px;
+            background: #edf2f7;
+            border: 1px solid #cbd5e0;
+            border-radius: 4px;
+            font-size: 10px;
+            color: #4a5568;
+        }
+        
+        .wf-feature-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .wf-mini-card {
+            width: 100%;
+            height: 100px;
+            border: 2px solid #cbd5e0;
+            background: #f7fafc;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: #718096;
+        }
+        
+        /* Content Sections */
+        .wf-content {
+            padding: 50px 96px;
+        }
+        
+        .wf-section-title {
+            width: 250px;
+            height: 28px;
+            background: #cbd5e0;
+            border: 2px dashed #718096;
+            margin-bottom: 30px;
+        }
+        
+        .wf-category-row {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 50px;
+            overflow-x: auto;
+        }
+        
+        .wf-category-card {
+            min-width: 200px;
+            height: 96px;
+            border: 2px solid #cbd5e0;
+            background: #f7fafc;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .wf-icon-circle {
+            width: 32px;
+            height: 32px;
+            border: 2px solid #a0aec0;
+            border-radius: 50%;
+            background: #edf2f7;
+        }
+        
+        .wf-card-text {
+            font-size: 11px;
+            color: #4a5568;
+        }
+        
+        .wf-company-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+        
+        .wf-company-card {
+            border: 2px solid #cbd5e0;
+            background: #fafafa;
+            border-radius: 8px;
+            padding: 20px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .wf-card-header {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .wf-logo-small {
+            width: 40px;
+            height: 40px;
+            border: 2px dashed #a0aec0;
+            background: #edf2f7;
+            border-radius: 4px;
+        }
+        
+        .wf-card-title {
+            width: 120px;
+            height: 16px;
+            background: #cbd5e0;
+        }
+        
+        .wf-badge-row {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        
+        .wf-badge {
+            padding: 4px 8px;
+            background: #edf2f7;
+            border: 1px solid #cbd5e0;
+            border-radius: 3px;
+            font-size: 9px;
+            color: #718096;
+        }
+        
+        .wf-card-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .wf-price {
+            font-size: 11px;
+            color: #4a5568;
+            font-weight: bold;
+        }
+        
+        .wf-btn-small {
+            padding: 6px 12px;
+            background: #cbd5e0;
+            border: 2px solid #a0aec0;
+            border-radius: 4px;
+            font-size: 10px;
+            color: #2d3748;
+        }
+        
+        .wf-steps-row {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 50px;
+            padding: 30px 0;
+            border-top: 2px solid #e2e8f0;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .wf-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .wf-step-icon {
+            width: 48px;
+            height: 48px;
+            border: 2px solid #a0aec0;
+            border-radius: 50%;
+            background: #edf2f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #718096;
+        }
+        
+        .wf-step-text {
+            width: 150px;
+            height: 14px;
+            background: #e2e8f0;
+        }
+        
+        .wf-template-row {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+        
+        .wf-template-card {
+            width: 240px;
+            height: 140px;
+            border: 2px solid #cbd5e0;
+            background: #f7fafc;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .wf-template-title {
+            width: 70%;
+            height: 18px;
+            background: #cbd5e0;
+        }
+        
+        .wf-template-desc {
+            width: 100%;
+            height: 12px;
+            background: #e2e8f0;
+        }
+        
+        .wf-cta-strip {
+            background: #2d3748;
+            padding: 40px 96px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .wf-cta-text {
+            width: 300px;
+            height: 24px;
+            background: #4a5568;
+            border: 2px dashed #718096;
+        }
+        
+        .wf-footer {
+            background: #1a202c;
+            padding: 50px 96px;
+            min-height: 180px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .wf-footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .wf-footer-title {
+            width: 80px;
+            height: 14px;
+            background: #4a5568;
+        }
+        
+        .wf-footer-link {
+            width: 100px;
+            height: 10px;
+            background: #2d3748;
+        }
+        
+        /* Browse Page */
+        .wf-browse-layout {
+            display: flex;
+            min-height: 800px;
+        }
+        
+        .wf-sidebar {
+            width: 300px;
+            background: #f7fafc;
+            border-right: 2px solid #e2e8f0;
+            padding: 30px 20px;
+        }
+        
+        .wf-filter-group {
+            margin-bottom: 25px;
+        }
+        
+        .wf-filter-title {
+            width: 100px;
+            height: 16px;
+            background: #cbd5e0;
+            margin-bottom: 12px;
+        }
+        
+        .wf-checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .wf-checkbox {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #a0aec0;
+            background: white;
+        }
+        
+        .wf-checkbox-label {
+            font-size: 11px;
+            color: #4a5568;
+        }
+        
+        .wf-toggle {
+            width: 40px;
+            height: 20px;
+            border: 2px solid #a0aec0;
+            border-radius: 10px;
+            background: #edf2f7;
+        }
+        
+        .wf-main-results {
+            flex: 1;
+            padding: 30px 40px;
+        }
+        
+        .wf-results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .wf-results-count {
+            font-size: 12px;
+            color: #4a5568;
+        }
+        
+        .wf-sort-dropdown {
+            width: 150px;
+            height: 32px;
+            border: 2px solid #a0aec0;
+            border-radius: 4px;
+            background: white;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            font-size: 11px;
+            color: #718096;
+        }
+        
+        .wf-company-list-card {
+            border: 2px solid #cbd5e0;
+            background: #fafafa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+            height: 140px;
+        }
+        
+        .wf-list-logo {
+            width: 72px;
+            height: 72px;
+            border: 2px dashed #a0aec0;
+            background: #edf2f7;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+        
+        .wf-list-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .wf-list-title {
+            width: 200px;
+            height: 20px;
+            background: #cbd5e0;
+        }
+        
+        .wf-list-desc {
+            width: 100%;
+            height: 14px;
+            background: #e2e8f0;
+        }
+        
+        .wf-list-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+            min-width: 150px;
+        }
+        
+        .wf-compare-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 72px;
+            background: #2d3748;
+            border-top: 3px solid #4a5568;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .wf-compare-bar.show {
+            display: flex;
+        }
+        
+        /* Post Project Page */
+        .wf-form-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            padding: 50px 96px;
+            min-height: 900px;
+        }
+        
+        .wf-form-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .wf-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .wf-label {
+            width: 120px;
+            height: 14px;
+            background: #cbd5e0;
+        }
+        
+        .wf-input {
+            width: 100%;
+            height: 44px;
+            border: 2px solid #a0aec0;
+            background: white;
+            border-radius: 4px;
+        }
+        
+        .wf-textarea {
+            width: 100%;
+            height: 160px;
+            border: 2px solid #a0aec0;
+            background: white;
+            border-radius: 4px;
+        }
+        
+        .wf-template-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .wf-template-chip {
+            padding: 8px 16px;
+            border: 2px solid #cbd5e0;
+            background: #f7fafc;
+            border-radius: 20px;
+            font-size: 11px;
+            color: #4a5568;
+        }
+        
+        .wf-radio-group {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .wf-radio {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .wf-radio-circle {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #a0aec0;
+            border-radius: 50%;
+            background: white;
+        }
+        
+        .wf-help-card {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            height: fit-content;
+        }
+        
+        .wf-help-title {
+            width: 150px;
+            height: 18px;
+            background: #cbd5e0;
+            margin-bottom: 15px;
+        }
+        
+        .wf-help-item {
+            width: 100%;
+            height: 12px;
+            background: #e2e8f0;
+            margin-bottom: 8px;
+        }
+        
+        /* Dashboard */
+        .wf-dashboard-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr 300px;
+            gap: 0;
+            min-height: 800px;
+        }
+        
+        .wf-sidebar-nav {
+            background: #f7fafc;
+            border-right: 2px solid #e2e8f0;
+            padding: 30px 20px;
+        }
+        
+        .wf-nav-item {
+            width: 100%;
+            height: 40px;
+            background: white;
+            border: 2px solid #cbd5e0;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            font-size: 11px;
+            color: #4a5568;
+        }
+        
+        .wf-dashboard-main {
+            padding: 40px;
+        }
+        
+        .wf-project-card {
+            border: 2px solid #cbd5e0;
+            background: #fafafa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .wf-project-title {
+            width: 250px;
+            height: 20px;
+            background: #cbd5e0;
+        }
+        
+        .wf-project-meta {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .wf-meta-item {
+            padding: 4px 10px;
+            background: #edf2f7;
+            border: 1px solid #cbd5e0;
+            border-radius: 4px;
+            font-size: 10px;
+            color: #718096;
+        }
+        
+        .wf-dashboard-sidebar {
+            background: #f7fafc;
+            border-left: 2px solid #e2e8f0;
+            padding: 30px 20px;
+        }
+        
+        .wf-stats-box {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .wf-stat-bar {
+            width: 100%;
+            height: 30px;
+            background: #edf2f7;
+            border: 1px solid #cbd5e0;
+            margin-bottom: 10px;
+        }
+        
+        .annotation {
+            position: absolute;
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            padding: 4px 8px;
+            font-size: 10px;
+            color: #92400e;
+            border-radius: 4px;
+            z-index: 10;
+            pointer-events: none;
+        }
+        
+        .dimension-label {
+            position: absolute;
+            background: #dbeafe;
+            border: 1px solid #3b82f6;
+            padding: 2px 6px;
+            font-size: 9px;
+            color: #1e40af;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 20px 30px 0;
+            background: white;
+        }
+        
+        .nav-tab {
+            padding: 10px 20px;
+            background: #f7fafc;
+            border: 2px solid #cbd5e0;
+            border-bottom: none;
+            border-radius: 6px 6px 0 0;
+            font-size: 12px;
+            color: #4a5568;
+            cursor: pointer;
+        }
+        
+        .nav-tab.active {
+            background: white;
+            border-color: #4299e1;
+            color: #2c5282;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <h1>TechConnect Pakistan - Complete Wireframes</h1>
+            <p>Low-Fidelity Desktop Wireframes (1440px × Variable Height)</p>
+            <div class="specs">
+                <strong>Grid System:</strong> 12 columns | <strong>Margins:</strong> 96px left/right | <strong>Gutter:</strong> 24px | <strong>Layout:</strong> Desktop 1440px
+            </div>
+        </div>
+
+        <!-- HOME PAGE -->
+        <div class="page-section">
+            <div class="page-title">A. HOME PAGE WIREFRAME</div>
+            <div class="page-purpose">Purpose: Discovery & conversion to Post Project or Browse Companies</div>
+            
+            <div class="wireframe">
+                <!-- Grid Overlay -->
+                <div class="grid-overlay">
+                    <div class="dimension-label" style="top: 10px; left: 50%; transform: translateX(-50%);">1440px Width</div>
+                    <div class="dimension-label" style="top: 80px; left: 10px;">72px</div>
+                </div>
+                
+                <!-- Header Component -->
+                <div class="wf-header">
+                    <div class="wf-logo-box">LOGO 160×32</div>
+                    <div class="wf-search-box">
+                        <div class="wf-search-icon"></div>
+                        Search services, companies, skills
+                    </div>
+                    <div class="wf-header-right">
+                        <div class="wf-lang-toggle">EN / اردو</div>
+                        <div class="wf-link">Sign In</div>
+                        <div class="wf-btn-primary">Post Project</div>
+                    </div>
+                </div>
+                
+                <!-- Hero Section -->
+                <div class="wf-hero">
+                    <div class="dimension-label" style="top: 90px; right: 10px;">420px Height</div>
+                    <div class="wf-hero-left">
+                        <div class="wf-h1-box">H1: Find Verified Pakistani Tech Companies (Poppins 36px)</div>
+                        <div class="wf-subhead-box"></div>
+                        <div class="wf-cta-row">
+                            <div class="wf-btn-large wf-btn-orange">Post Project (Orange)</div>
+                            <div class="wf-btn-large wf-btn-outline">Explore Companies (Navy Outline)</div>
+                        </div>
+                        <div class="wf-stats-row">
+                            <div class="wf-stat-chip">20+ Verified Companies</div>
+                            <div class="wf-stat-chip">5 Pilot Matches</div>
+                            <div class="wf-stat-chip">Local Payments</div>
+                        </div>
+                    </div>
+                    <div class="wf-hero-right">
+                        <div class="wf-feature-cards">
+                            <div class="wf-mini-card">Featured Company Card 1</div>
+                            <div class="wf-mini-card">Featured Company Card 2</div>
+                            <div class="wf-mini-card">Featured Company Card 3</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Categories -->
+                <div class="wf-content">
+                    <div class="wf-section-title"></div>
+                    <div class="wf-category-row">
+                        <div class="wf-category-card">
+                            <div class="wf-icon-circle"></div>
+                            <div class="wf-card-text">Web Development</div>
+                            <div class="wf-card-text">12 Companies</div>
+                        </div>
+                        <div class="wf-category-card">
+                            <div class="wf-icon-circle"></div>
+                            <div class="wf-card-text">Mobile App Dev</div>
+                            <div class="wf-card-text">8 Companies</div>
+                        </div>
+                        <div class="wf-category-card">
+                            <div class="wf-icon-circle"></div>
+                            <div class="wf-card-text">Digital Marketing</div>
+                            <div class="wf-card-text">10 Companies</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Companies Grid -->
+                    <div class="wf-section-title"></div>
+                    <div class="wf-company-grid">
+                        <div class="wf-company-card">
+                            <div class="wf-card-header">
+                                <div class="wf-logo-small"></div>
+                                <div>
+                                    <div class="wf-card-title"></div>
+                                    <div class="wf-badge" style="margin-top: 5px; display: inline-block;">✓ Verified</div>
+                                </div>
+                            </div>
+                            <div class="wf-badge-row">
+                                <div class="wf-badge">Web</div>
+                                <div class="wf-badge">Mobile</div>
+                                <div class="wf-badge">UI/UX</div>
+                            </div>
+                            <div class="wf-card-footer">
+                                <div class="wf-price">From $2,500</div>
+                                <div class="wf-btn-small">Invite to Bid</div>
+                            </div>
+                        </div>
+                        <div class="wf-company-card">
+                            <div class="wf-card-header">
+                                <div class="wf-logo-small"></div>
+                                <div>
+                                    <div class="wf-card-title"></div>
+                                    <div class="wf-badge" style="margin-top: 5px; display: inline-block;">✓ Verified</div>
+                                </div>
+                            </div>
+                            <div class="wf-badge-row">
+                                <div class="wf-badge">Marketing</div>
+                                <div class="wf-badge">SEO</div>
+                            </div>
+                            <div class="wf-card-footer">
+                                <div class="wf-price">From $1,800</div>
+                                <div class="wf-btn-small">Invite to Bid</div>
+                            </div>
+                        </div>
+                        <div class="wf-company-card">
+                            <div class="wf-card-header">
+                                <div class="wf-logo-small"></div>
+                                <div>
+                                    <div class="wf-card-title"></div>
+                                    <div class="wf-badge" style="margin-top: 5px; display: inline-block;">✓ Verified</div>
+                                </div>
+                            </div>
+                            <div class="wf-badge-row">
+                                <div class="wf-badge">Mobile</div>
+                                <div class="wf-badge">iOS</div>
+                                <div class="wf-badge">Android</div>
+                            </div>
+                            <div class="wf-card-footer">
+                                <div class="wf-price">From $3,200</div>
+                                <div class="wf-btn-small">Invite to Bid</div>
+                            </div>
+                        </div>
+                        <div class="wf-company-card">
+                            <div class="wf-card-header">
+                                <div class="wf-logo-small"></div>
+                                <div>
+                                    <div class="wf-card-title"></div>
+                                    <div class="wf-badge" style="margin-top: 5px; display: inline-block;">✓ Verified</div>
+                                </div>
+                            </div>
+                            <div class="wf-badge-row">
+                                <div class="wf-badge">Web</div>
+                                <div class="wf-badge">E-commerce</div>
+                            </div>
+                            <div class="wf-card-footer">
+                                <div class="wf-price">From $2,000</div>
+                                <div class="wf-btn-small">Invite to Bid</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- How It Works -->
+                    <div class="wf-section-title"></div>
+                    <div class="wf-steps-row">
+                        <div class="wf-step">
+                            <div class="wf-step-icon">1</div>
+                            <div class="wf-step-text"></div>
+                        </div>
+                        <div class="wf-step">
+                            <div class="wf-step-icon">2</div>
+                            <div class="wf-step-text"></div>
+                        </div>
+                        <div class="wf-step">
+                            <div class="wf-step-icon">3</div>
+                            <div class="wf-step-text"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Templates -->
+                    <div class="wf-section-title"></div>
+                    <div class="wf-template-row">
+                        <div class="wf-template-card">
+                            <div class="wf-template-title"></div>
+                            <div class="wf-template-desc"></div>
+                            <div class="wf-template-desc"></div>
+                            <div class="wf-btn-small" style="margin-top: auto;">Use Template</div>
+                        </div>
+                        <div class="wf-template-card">
+                            <div class="wf-template-title"></div>
+                            <div class="wf-template-desc"></div>
+                            <div class="wf-template-desc"></div>
+                            <div class="wf-btn-small" style="margin-top: auto;">Use Template</div>
+                        </div>
+                        <div class="wf-template-card">
+                            <div class="wf-template-title"></div>
+                            <div class="wf-template-desc"></div>
+                            <div class="wf-template-desc"></div>
+                            <div class="wf-btn-small" style="margin-top: auto;">Use Template</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA Strip -->
+                <div class="wf-cta-strip">
+                    <div class="wf-cta-text"></div>
+                    <div class="wf-btn-large wf-btn-orange">Post Project (Orange)</div>
+                </div>
+                
+                <!-- Footer -->
+                <div class="wf-footer">
+                    <div class="wf-footer-col">
+                        <div class="wf-footer-title"></div>
+                        <div class="wf-footer-link"></div>
+                        <div class="wf-footer-link"></div>
+                        <div class="wf-footer-link"></div>
+                    </div>
+                    <div class="wf-footer-col">
+                        <div class="wf-footer-title"></div>
+                        <div class="wf-footer-link"></div>
+                        <div class="wf-footer-link"></div>
+                        <div class="wf-footer-link"></div>
+                    </div>
+                    <div class="wf-footer-col">
+                        <div class="wf-footer-title"></div>
+                        <div class="wf-footer-link"></div>
+                        <div class="wf-footer-link"></div>
+                        <div class="wf-footer-link"></div>
+                    </div>
+                    <div class="wf-footer-col">
+                        <div class="wf-footer-title"></div>
+                        <div class="wf-footer-link"></div>
+                        <div class="wf-footer-link"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BROWSE PAGE -->
+        <div class="page-section">
+            <div class="page-title">B. BROWSE / COMPANY LISTING PAGE WIREFRAME</div>
+            <div class="page-purpose">Purpose: Filter, search, compare, and select service providers</div>
+            
+            <div class="wireframe">
+                <!-- Header -->
+                <div class="wf-header">
+                    <div class="wf-logo-box">LOGO 160×32</div>
+                    <div class="wf-search-box">
+                        <div class="wf-search-icon"></div>
+                        Search services, companies, skills
+                    </div>
+                    <div class="wf-header-right">
+                        <div class="wf-lang-toggle">EN / اردو</div>
+                        <div class="wf-link">Sign In</div>
+                        <div class="wf-btn-primary">Post Project</div>
+                    </div>
+                </div>
+                
+                <!-- Search & Filters Bar -->
+                <div style="padding: 20px 96px; background: #fafafa; border-bottom: 2px solid #e2e8f0;">
+                    <div class="wf-search-box" style="width: 100%; margin-bottom: 15px;">
+                        <div class="wf-search-icon"></div>
+                        Large search with active filters
+                    </div>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <div class="wf-badge">Filter: Web Dev ×</div>
+                        <div class="wf-badge">Filter: Verified ×</div>
+                        <div class="wf-link">Clear all</div>
+                    </div>
+                </div>
+                
+                <div class="wf-browse-layout">
+                    <div class="dimension-label" style="top: 150px; left: 10px;">300px</div>
+                    <!-- Left Sidebar -->
+                    <div class="wf-sidebar">
+                        <div class="wf-filter-group">
+                            <div class="wf-filter-title"></div>
+                            <div class="wf-checkbox-row">
+                                <div class="wf-checkbox"></div>
+                                <span class="wf-checkbox-label">Karachi</span>
+                            </div>
+                            <div class="wf-checkbox-row">
+                                <div class="wf-checkbox"></div>
+                                <span class="wf-checkbox-label">Lahore</span>
+                            </div>
+                            <div class="wf-checkbox-row">
+                                <div class="wf-checkbox"></div>
+                                <span class="wf-checkbox-label">Islamabad</span>
+                            </div>
+                            <div class="wf-checkbox-row">
+                                <div class="wf-checkbox"></div>
+                                <span class="wf-checkbox-label">Remote</span>
+                            </div>
+                        </div>
+                        
+                        <div class="wf-filter-group">
+                            <div class="wf-filter-title"></div>
+                            <div class="wf-checkbox-row">
+                                <div class="wf-checkbox"></div>
+                                <span class="wf-checkbox-label">Web Development</span>
+                            </div>
+                            <div class="wf-checkbox-row">
+                                <div class="wf-checkbox"></div>
+                                <span class="wf-checkbox-label">Mobile App Dev</span>
+                            </div>
+                            <div class="wf-checkbox-row">
+                                <div class="wf-checkbox"></div>
+                                <span class="wf-checkbox-label">Digital Marketing</span>
+                            </div>
+                        </div>
+                        
+                        <div class="wf-filter-group">
+                            <div class="wf-filter-title"></div>
+                            <div class="wf-checkbox-row">
+                                <div class="wf-checkbox"></div>
+                                <span class="wf-checkbox-label">1-10 employees</span>
+                            </div>
+                            <div class="wf-checkbox-row">
+                                <div class="wf-checkbox"></div>
+                                <span class="wf-checkbox-label">11-50 employees</span>
+                            </div>
+                            <div class="wf-checkbox-row">
+                                <div class="wf-checkbox"></div>
+                                <span class="wf-checkbox-label">50+ employees</span>
+                            </div>
+                        </div>
+                        
+                        <div class="wf-filter-group">
+                            <div class="wf-filter-title"></div>
+                            <div style="width: 100%; height: 40px; border: 2px solid #cbd5e0; background: #edf2f7; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #718096;">Price Range Slider</div>
+                        </div>
+                        
+                        <div class="wf-filter-group">
+                            <div class="wf-filter-title"></div>
+                            <div class="wf-checkbox-row">
+                                <div class="wf-toggle"></div>
+                                <span class="wf-checkbox-label">Verified Only</span>
+                            </div>
+                        </div>
+                        
+                        <div class="wf-filter-group">
+                            <div class="wf-filter-title"></div>
+                            <div class="wf-checkbox-row">
+                                <div class="wf-checkbox"></div>
+                                <span class="wf-checkbox-label">★★★★★</span>
+                            </div>
+                            <div class="wf-checkbox-row">
+                                <div class="wf-checkbox"></div>
+                                <span class="wf-checkbox-label">★★★★☆ & up</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Main Results -->
+                    <div class="wf-main-results">
+                        <div class="wf-results-header">
+                            <span class="wf-results-count">Showing 24 results</span>
+                            <div class="wf-sort-dropdown">Sort by: Relevance ▼</div>
+                        </div>
+                        
+                        <!-- Company List Cards -->
+                        <div class="wf-company-list-card">
+                            <div class="dimension-label" style="top: 10px; right: 10px;">140px Height</div>
+                            <div class="wf-list-logo"></div>
+                            <div class="wf-list-content">
+                                <div class="wf-list-title"></div>
+                                <div class="wf-list-desc"></div>
+                                <div class="wf-badge-row">
+                                    <div class="wf-badge">Web</div>
+                                    <div class="wf-badge">Mobile</div>
+                                    <div class="wf-badge">✓ Verified</div>
+                                </div>
+                            </div>
+                            <div class="wf-list-right">
+                                <div class="wf-price">From $3,000</div>
+                                <div style="display: flex; gap: 10px; margin-top: auto;">
+                                    <div class="wf-btn-small">Invite to Bid</div>
+                                    <div class="wf-link">View Profile</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="wf-company-list-card">
+                            <div class="wf-list-logo"></div>
+                            <div class="wf-list-content">
+                                <div class="wf-list-title"></div>
+                                <div class="wf-list-desc"></div>
+                                <div class="wf-badge-row">
+                                    <div class="wf-badge">Marketing</div>
+                                    <div class="wf-badge">SEO</div>
+                                    <div class="wf-badge">✓ Verified</div>
+                                </div>
+                            </div>
+                            <div class="wf-list-right">
+                                <div class="wf-price">From $1,500</div>
+                                <div style="display: flex; gap: 10px; margin-top: auto;">
+                                    <div class="wf-btn-small">Invite to Bid</div>
+                                    <div class="wf-link">View Profile</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="wf-company-list-card">
+                            <div class="wf-list-logo"></div>
+                            <div class="wf-list-content">
+                                <div class="wf-list-title"></div>
+                                <div class="wf-list-desc"></div>
+                                <div class="wf-badge-row">
+                                    <div class="wf-badge">Mobile</div>
+                                    <div class="wf-badge">iOS</div>
+                                    <div class="wf-badge">Android</div>
+                                    <div class="wf-badge">✓ Verified</div>
+                                </div>
+                            </div>
+                            <div class="wf-list-right">
+                                <div class="wf-price">From $4,200</div>
+                                <div style="display: flex; gap: 10px; margin-top: auto;">
+                                    <div class="wf-btn-small">Invite to Bid</div>
+                                    <div class="wf-link">View Profile</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="wf-company-list-card">
+                            <div class="wf-list-logo"></div>
+                            <div class="wf-list-content">
+                                <div class="wf-list-title"></div>
+                                <div class="wf-list-desc"></div>
+                                <div class="wf-badge-row">
+                                    <div class="wf-badge">Web</div>
+                                    <div class="wf-badge">E-commerce</div>
+                                    <div class="wf-badge">✓ Verified</div>
+                                </div>
+                            </div>
+                            <div class="wf-list-right">
+                                <div class="wf-price">From $2,800</div>
+                                <div style="display: flex; gap: 10px; margin-top: auto;">
+                                    <div class="wf-btn-small">Invite to Bid</div>
+                                    <div class="wf-link">View Profile</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <div style="display: flex; justify-content: center; gap: 10px; margin-top: 30px;">
+                            <div class="wf-btn-small">← Prev</div>
+                            <div class="wf-btn-small">1</div>
+                            <div class="wf-btn-small">2</div>
+                            <div class="wf-btn-small">3</div>
+                            <div class="wf-btn-small">Next →</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sticky Compare Bar -->
+                <div class="wf-compare-bar">
+                    <div class="dimension-label" style="top: 20px; left: 50%; transform: translateX(-50%);">72px Height - Sticky Bottom</div>
+                    <div style="color: #a0aec0; font-size: 14px;">Compare (0)</div>
+                    <div class="wf-btn-large wf-btn-orange" style="opacity: 0.5;">Compare Companies</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- POST PROJECT PAGE -->
+        <div class="page-section">
+            <div class="page-title">C. POST PROJECT PAGE WIREFRAME</div>
+            <div class="page-purpose">Purpose: Collect high-quality project briefs and convert visitors</div>
+            
+            <div class="wireframe">
+                <!-- Header -->
+                <div class="wf-header">
+                    <div class="wf-logo-box">LOGO 160×32</div>
+                    <div class="wf-search-box">
+                        <div class="wf-search-icon"></div>
+                        Search services, companies, skills
+                    </div>
+                    <div class="wf-header-right">
+                        <div class="wf-lang-toggle">EN / اردو</div>
+                        <div class="wf-link">Sign In</div>
+                        <div class="wf-btn-primary">Post Project</div>
+                    </div>
+                </div>
+                
+                <!-- Page Hero -->
+                <div style="padding: 30px 96px; background: #fafafa; border-bottom: 2px solid #e2e8f0; text-align: center;">
+                    <div style="width: 400px; height: 28px; background: #cbd5e0; margin: 0 auto; border: 2px dashed #718096;"></div>
+                </div>
+                
+                <!-- Form Layout -->
+                <div class="wf-form-layout">
+                    <div class="dimension-label" style="top: 180px; left: 50%; transform: translateX(-50%);">8 Cols (Left) + 4 Cols (Right)</div>
+                    
+                    <!-- Left Column: Form -->
+                    <div class="wf-form-column">
+                        <!-- Template Selector -->
+                        <div style="margin-bottom: 30px;">
+                            <div class="wf-label" style="margin-bottom: 10px;"></div>
+                            <div class="wf-template-selector">
+                                <div class="wf-template-chip">Blank Template</div>
+                                <div class="wf-template-chip">Website Brief</div>
+                                <div class="wf-template-chip">App Brief</div>
+                                <div class="wf-template-chip">Marketing Brief</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Form Fields -->
+                        <div class="wf-form-group">
+                            <div class="wf-label"></div>
+                            <div class="wf-input"></div>
+                        </div>
+                        
+                        <div class="wf-form-group">
+                            <div class="wf-label"></div>
+                            <div class="wf-input"></div>
+                        </div>
+                        
+                        <div class="wf-form-group">
+                            <div class="wf-label"></div>
+                            <div class="wf-input"></div>
+                        </div>
+                        
+                        <div class="wf-form-group">
+                            <div class="wf-label"></div>
+                            <div class="wf-input"></div>
+                        </div>
+                        
+                        <div class="wf-form-group">
+                            <div class="wf-label"></div>
+                            <div class="wf-input"></div>
+                        </div>
+                        
+                        <div class="wf-form-group">
+                            <div class="wf-label"></div>
+                            <div class="wf-textarea"></div>
+                            <div style="font-size: 10px; color: #718096; text-align: right;">0 / 500 words</div>
+                        </div>
+                        
+                        <div class="wf-form-group">
+                            <div class="wf-label"></div>
+                            <div class="wf-badge-row">
+                                <div class="wf-badge">React</div>
+                                <div class="wf-badge">Node.js</div>
+                                <div class="wf-badge">+ Add</div>
+                            </div>
+                        </div>
+                        
+                        <div class="wf-form-group">
+                            <div class="wf-label"></div>
+                            <div class="wf-radio-group">
+                                <div class="wf-radio">
+                                    <div class="wf-radio-circle"></div>
+                                    <span style="font-size: 11px; color: #4a5568;">Public</span>
+                                </div>
+                                <div class="wf-radio">
+                                    <div class="wf-radio-circle"></div>
+                                    <span style="font-size: 11px; color: #4a5568;">Invite-only</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="wf-form-group">
+                            <div class="wf-label"></div>
+                            <div style="padding: 20px; border: 2px dashed #cbd5e0; background: #f7fafc; border-radius: 6px; text-align: center; font-size: 11px; color: #718096;">
+                                Upload Files (Drag & Drop)
+                            </div>
+                        </div>
+                        
+                        <div class="wf-form-group">
+                            <div class="wf-label"></div>
+                            <div class="wf-radio-group">
+                                <div class="wf-radio">
+                                    <div class="wf-radio-circle"></div>
+                                    <span style="font-size: 11px; color: #4a5568;">💳 JazzCash</span>
+                                </div>
+                                <div class="wf-radio">
+                                    <div class="wf-radio-circle"></div>
+                                    <span style="font-size: 11px; color: #4a5568;">💳 EasyPaisa</span>
+                                </div>
+                                <div class="wf-radio">
+                                    <div class="wf-radio-circle"></div>
+                                    <span style="font-size: 11px; color: #4a5568;">🏦 Bank Transfer</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div style="display: flex; gap: 15px; margin-top: 30px;">
+                            <div class="wf-btn-large wf-btn-orange">Publish Project (Orange)</div>
+                            <div class="wf-btn-large wf-btn-outline">Save Draft (Teal Outline)</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column: Help -->
+                    <div class="wf-form-column">
+                        <div class="wf-help-card">
+                            <div class="wf-help-title"></div>
+                            <div class="wf-help-item"></div>
+                            <div class="wf-help-item"></div>
+                            <div class="wf-help-item"></div>
+                        </div>
+                        
+                        <div class="wf-help-card" style="margin-top: 20px;">
+                            <div class="wf-help-title"></div>
+                            <div class="wf-help-item"></div>
+                            <div class="wf-help-item"></div>
+                        </div>
+                        
+                        <div class="wf-help-card" style="margin-top: 20px;">
+                            <div class="wf-help-title"></div>
+                            <div style="padding: 15px; background: #edf2f7; border-radius: 4px; font-size: 10px; color: #718096; text-align: center;">
+                                Chat / Contact Support
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DASHBOARD PAGE -->
+        <div class="page-section">
+            <div class="page-title">D. DASHBOARD PAGE WIREFRAME</div>
+            <div class="page-purpose">Purpose: View posts, manage leads, and access profile settings</div>
+            
+            <div class="wireframe">
+                <!-- Header -->
+                <div class="wf-header">
+                    <div class="wf-logo-box">LOGO 160×32</div>
+                    <div class="wf-search-box">
+                        <div class="wf-search-icon"></div>
+                        Search services, companies, skills
+                    </div>
+                    <div class="wf-header-right">
+                        <div class="wf-lang-toggle">EN / اردو</div>
+                        <div style="width: 24px; height: 24px; border: 2px solid #a0aec0; border-radius: 50%; background: #edf2f7;"></div>
+                        <div style="width: 32px; height: 32px; border: 2px solid #a0aec0; border-radius: 50%; background: #cbd5e0;"></div>
+                    </div>
+                </div>
+                
+                <!-- Tabs -->
+                <div class="nav-tabs">
+                    <div class="nav-tab active">My Projects</div>
+                    <div class="nav-tab">Messages</div>
+                    <div class="nav-tab">Company Profile</div>
+                    <div class="nav-tab">Settings</div>
+                </div>
+                
+                <!-- Dashboard Layout -->
+                <div class="wf-dashboard-layout">
+                    <div class="dimension-label" style="top: 200px; left: 10px;">240px</div>
+                    <div class="dimension-label" style="top: 200px; right: 10px;">300px</div>
+                    
+                    <!-- Left Navigation -->
+                    <div class="wf-sidebar-nav">
+                        <div class="wf-nav-item" style="background: #edf2f7; font-weight: bold;">My Projects</div>
+                        <div class="wf-nav-item">Messages</div>
+                        <div class="wf-nav-item">Profile</div>
+                        <div class="wf-nav-item">Billing</div>
+                    </div>
+                    
+                    <!-- Main Content -->
+                    <div class="wf-dashboard-main">
+                        <div style="width: 200px; height: 28px; background: #cbd5e0; margin-bottom: 30px; border: 2px dashed #718096;"></div>
+                        
+                        <!-- Project Cards -->
+                        <div class="wf-project-card">
+                            <div class="wf-project-title"></div>
+                            <div class="wf-project-meta">
+                                <div class="wf-meta-item">Status: Open</div>
+                                <div class="wf-meta-item">5 Invites</div>
+                                <div class="wf-meta-item">3 Matches</div>
+                            </div>
+                            <div style="display: flex; gap: 10px; margin-top: auto;">
+                                <div class="wf-btn-small">View Details</div>
+                                <div class="wf-btn-small">Archive</div>
+                            </div>
+                        </div>
+                        
+                        <div class="wf-project-card">
+                            <div class="wf-project-title"></div>
+                            <div class="wf-project-meta">
+                                <div class="wf-meta-item">Status: Open</div>
+                                <div class="wf-meta-item">2 Invites</div>
+                                <div class="wf-meta-item">1 Match</div>
+                            </div>
+                            <div style="display: flex; gap: 10px; margin-top: auto;">
+                                <div class="wf-btn-small">Edit</div>
+                                <div class="wf-btn-small">Invite More</div>
+                                <div class="wf-btn-small">View Responses</div>
+                            </div>
+                        </div>
+                        
+                        <!-- For Company Users -->
+                        <div style="margin-top: 50px; padding-top: 30px; border-top: 2px solid #e2e8f0;">
+                            <div style="width: 150px; height: 24px; background: #cbd5e0; margin-bottom: 20px;"></div>
+                            
+                            <div class="wf-project-card" style="height: auto;">
+                                <div class="wf-project-title"></div>
+                                <div class="wf-list-desc" style="margin: 10px 0;"></div>
+                                <div class="wf-project-meta">
+                                    <div class="wf-meta-item">Budget: $3,000</div>
+                                    <div class="wf-meta-item">Timeline: 6 weeks</div>
+                                </div>
+                                <div style="display: flex; gap: 10px; margin-top: 15px;">
+                                    <div class="wf-btn-small">Reply</div>
+                                    <div class="wf-link">View Full Brief</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Sidebar: Stats -->
+                    <div class="wf-dashboard-sidebar">
+                        <div class="wf-stats-box">
+                            <div style="width: 120px; height: 18px; background: #cbd5e0; margin-bottom: 15px;"></div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span style="font-size: 11px; color: #718096;">Total Projects</span>
+                                <span style="font-size: 14px; font-weight: bold; color: #2d3748;">12</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span style="font-size: 11px; color: #718096;">Active Matches</span>
+                                <span style="font-size: 14px; font-weight: bold; color: #2d3748;">8</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span style="font-size: 11px; color: #718096;">Responses</span>
+                                <span style="font-size: 14px; font-weight: bold; color: #2d3748;">24</span>
+                            </div>
+                        </div>
+                        
+                        <div class="wf-stats-box">
+                            <div style="width: 140px; height: 18px; background: #cbd5e0; margin-bottom: 15px;"></div>
+                            <div class="wf-stat-bar"></div>
+                            <div class="wf-stat-bar"></div>
+                            <div class="wf-stat-bar"></div>
+                        </div>
+                        
+                        <div class="wf-stats-box">
+                            <div style="width: 100px; height: 18px; background: #cbd5e0; margin-bottom: 15px;"></div>
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                                <div style="width: 32px; height: 32px; border: 2px dashed #a0aec0; background: #edf2f7; border-radius: 50%;"></div>
+                                <div>
+                                    <div style="width: 80px; height: 12px; background: #cbd5e0; margin-bottom: 4px;"></div>
+                                    <div style="width: 60px; height: 10px; background: #e2e8f0;"></div>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                                <div style="width: 32px; height: 32px; border: 2px dashed #a0aec0; background: #edf2f7; border-radius: 50%;"></div>
+                                <div>
+                                    <div style="width: 80px; height: 12px; background: #cbd5e0; margin-bottom: 4px;"></div>
+                                    <div style="width: 60px; height: 10px; background: #e2e8f0;"></div>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div style="width: 32px; height: 32px; border: 2px dashed #a0aec0; background: #edf2f7; border-radius: 50%;"></div>
+                                <div>
+                                    <div style="width: 80px; height: 12px; background: #cbd5e0; margin-bottom: 4px;"></div>
+                                    <div style="width: 60px; height: 10px; background: #e2e8f0;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMPONENT LIBRARY -->
+        <div class="page-section">
+            <div class="page-title">E. REUSABLE COMPONENT LIBRARY</div>
+            <div class="page-purpose">Components to convert into Figma components with variants</div>
+            
+            <div class="wireframe" style="padding: 50px 96px;">
+                <div style="margin-bottom: 40px;">
+                    <h3 style="font-size: 18px; color: #2d3748; margin-bottom: 20px;">Buttons</h3>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center;">
+                        <div class="wf-btn-large wf-btn-orange">Button / Primary / Default</div>
+                        <div class="wf-btn-large wf-btn-orange" style="opacity: 0.7;">Button / Primary / Hover</div>
+                        <div class="wf-btn-large wf-btn-orange" style="opacity: 0.4;">Button / Primary / Disabled</div>
+                        <div class="wf-btn-large wf-btn-outline">Button / Secondary / Outline</div>
+                        <div class="wf-btn-small">Button / Small</div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 40px;">
+                    <h3 style="font-size: 18px; color: #2d3748; margin-bottom: 20px;">Inputs</h3>
+                    <div style="display: flex; flex-direction: column; gap: 15px; max-width: 500px;">
+                        <div class="wf-input"></div>
+                        <div class="wf-input" style="border-color: #f56565;"></div>
+                        <div class="wf-textarea"></div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 40px;">
+                    <h3 style="font-size: 18px; color: #2d3748; margin-bottom: 20px;">Cards</h3>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+                        <div class="wf-company-card">
+                            <div class="wf-card-header">
+                                <div class="wf-logo-small"></div>
+                                <div>
+                                    <div class="wf-card-title"></div>
+                                    <div class="wf-badge" style="margin-top: 5px; display: inline-block;">✓ Verified</div>
+                                </div>
+                            </div>
+                            <div class="wf-badge-row">
+                                <div class="wf-badge">Web</div>
+                                <div class="wf-badge">Mobile</div>
+                            </div>
+                            <div class="wf-card-footer">
+                                <div class="wf-price">From $2,500</div>
+                                <div class="wf-btn-small">Invite to Bid</div>
+                            </div>
+                        </div>
+                        
+                        <div class="wf-company-list-card" style="height: 140px;">
+                            <div class="wf-list-logo"></div>
+                            <div class="wf-list-content">
+                                <div class="wf-list-title"></div>
+                                <div class="wf-list-desc"></div>
+                                <div class="wf-badge-row">
+                                    <div class="wf-badge">Marketing</div>
+                                    <div class="wf-badge">✓ Verified</div>
+                                </div>
+                            </div>
+                            <div class="wf-list-right">
+                                <div class="wf-price">From $1,500</div>
+                                <div style="display: flex; gap: 10px; margin-top: auto;">
+                                    <div class="wf-btn-small">Invite</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="wf-template-card">
+                            <div class="wf-template-title"></div>
+                            <div class="wf-template-desc"></div>
+                            <div class="wf-template-desc"></div>
+                            <div class="wf-btn-small" style="margin-top: auto;">Use Template</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 40px;">
+                    <h3 style="font-size: 18px; color: #2d3748; margin-bottom: 20px;">Form Elements</h3>
+                    <div style="display: flex; gap: 30px; align-items: center;">
+                        <div class="wf-checkbox-row">
+                            <div class="wf-checkbox"></div>
+                            <span class="wf-checkbox-label">Checkbox / Unchecked</span>
+                        </div>
+                        <div class="wf-checkbox-row">
+                            <div class="wf-checkbox" style="background: #cbd5e0;">✓</div>
+                            <span class="wf-checkbox-label">Checkbox / Checked</span>
+                        </div>
+                        <div class="wf-radio">
+                            <div class="wf-radio-circle"></div>
+                            <span style="font-size: 11px; color: #4a5568;">Radio Button</span>
+                        </div>
+                        <div class="wf-toggle"></div>
+                        <span style="font-size: 11px; color: #4a5568;">Toggle Switch</span>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 40px;">
+                    <h3 style="font-size: 18px; color: #2d3748; margin-bottom: 20px;">Badges & Chips</h3>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+                        <div class="wf-badge">Badge / Default</div>
+                        <div class="wf-badge" style="background: #008C7E; color: white;">✓ Verified Badge</div>
+                        <div class="wf-template-chip">Template Chip</div>
+                        <div class="wf-stat-chip">Stat Chip</div>
+                        <div class="wf-meta-item">Meta Item</div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 40px;">
+                    <h3 style="font-size: 18px; color: #2d3748; margin-bottom: 20px;">Icons & Placeholders</h3>
+                    <div style="display: flex; gap: 20px; align-items: center;">
+                        <div class="wf-logo-box">Logo 160×32</div>
+                        <div class="wf-logo-small"></div>
+                        <div class="wf-list-logo"></div>
+                        <div class="wf-icon-circle"></div>
+                        <div class="wf-step-icon">1</div>
+                        <div style="width: 24px; height: 24px; background: #008C7E; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">✓</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 18px; color: #2d3748; margin-bottom: 20px;">Annotations & Labels</h3>
+                    <p style="font-size: 14px; color: #718096; margin-bottom: 15px;">Use these visual indicators in your Figma wireframes:</p>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <div class="dimension-label">Dimension Label</div>
+                        <div class="annotation">Annotation / Note</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FIGMA INSTRUCTIONS -->
+        <div class="page-section">
+            <div class="page-title">F. FIGMA IMPLEMENTATION CHECKLIST</div>
+            <div style="padding: 40px; background: #f7fafc;">
+                <div style="max-width: 1000px; margin: 0 auto;">
+                    <h3 style="font-size: 20px; color: #2d3748; margin-bottom: 20px;">Step-by-Step Implementation Guide</h3>
+                    
+                    <div style="background: white; border: 2px solid #e2e8f0; border-radius: 8px; padding: 30px; margin-bottom: 20px;">
+                        <h4 style="font-size: 16px; color: #2c5282; margin-bottom: 15px; font-weight: bold;">1. File Setup</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Create new Figma file: "TechConnect — MVP Wireframes"</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Create 3 pages: Design Tokens, Wireframes, Prototype</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Add color swatches on Design Tokens page with hex codes</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Add typography specs and button styles</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: white; border: 2px solid #e2e8f0; border-radius: 8px; padding: 30px; margin-bottom: 20px;">
+                        <h4 style="font-size: 16px; color: #2c5282; margin-bottom: 15px; font-weight: bold;">2. Layout Grids & Frames</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Create Desktop frame: 1440 × 1024px</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Add layout grid: 12 columns, 96px margins, 24px gutter</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Duplicate and name: Home, Browse, PostProject, Dashboard</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: white; border: 2px solid #e2e8f0; border-radius: 8px; padding: 30px; margin-bottom: 20px;">
+                        <h4 style="font-size: 16px; color: #2c5282; margin-bottom: 15px; font-weight: bold;">3. Build Components</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Header component (72px height, sticky)</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Company Card component (320×160px)</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Company List Card (horizontal, 140px height)</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Template Card (240×120px)</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Button variants (Primary/Secondary, Default/Hover/Disabled)</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Input variants (Default/Error/Focused)</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Verified Badge (24×24px circle, teal #008C7E)</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Checkbox, Radio, Toggle components</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: white; border: 2px solid #e2e8f0; border-radius: 8px; padding: 30px; margin-bottom: 20px;">
+                        <h4 style="font-size: 16px; color: #2c5282; margin-bottom: 15px; font-weight: bold;">4. Build All Pages</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Home: Hero, categories, featured companies, steps, templates, footer</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Browse: Sidebar filters (300px), company list cards, compare bar</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Post Project: Two-column form (8+4 cols), template selector, help sidebar</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Dashboard: 3-col layout (240px nav + main + 300px sidebar)</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: white; border: 2px solid #e2e8f0; border-radius: 8px; padding: 30px; margin-bottom: 20px;">
+                        <h4 style="font-size: 16px; color: #2c5282; margin-bottom: 15px; font-weight: bold;">5. Prototype Linking</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Header logo → Home</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ "Explore Companies" button → Browse</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Category chips → Browse (with filter active)</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ "Post Project" button → Post Project page</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ "Use Template" → Post Project (template selected)</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ "Publish Project" → Confirmation modal</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ "Invite to Bid" → Modal overlay</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Project cards → Dashboard details</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Set transitions: Smart Animate or Instant</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: white; border: 2px solid #e2e8f0; border-radius: 8px; padding: 30px; margin-bottom: 20px;">
+                        <h4 style="font-size: 16px; color: #2c5282; margin-bottom: 15px; font-weight: bold;">6. Extra UI Details</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Verified badge tooltip: "Verified by TechConnect — Company registration & reference checks completed"</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Language toggle behavior (EN/اردو)</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Project templates with prefilled text</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Payment icons: JazzCash, EasyPaisa placeholders</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Company verification CTA banner</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: white; border: 2px solid #e2e8f0; border-radius: 8px; padding: 30px;">
+                        <h4 style="font-size: 16px; color: #2c5282; margin-bottom: 15px; font-weight: bold;">7. Testing & Export</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Click "Present" to test all flows</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Verify all interactions work</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Check spacing and alignment</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Share → "Anyone with link can view"</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Export screenshots: Home, Browse, Post Project, Dashboard</li>
+                            <li style="padding: 8px 0; color: #4a5568; font-size: 14px;">☐ Optional: Create mobile versions (375×812px)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NOTES -->
+        <div style="background: #fef3c7; border: 2px solid #f59e0b; border-radius: 8px; padding: 30px; margin-top: 30px;">
+            <h3 style="font-size: 18px; color: #92400e; margin-bottom: 15px; font-weight: bold;">📝 Important Notes for Wireframes</h3>
+            <ul style="color: #78350f; font-size: 14px; line-height: 1.8;">
+                <li><strong>Grayscale Only:</strong> Wireframes use blacks, grays, whites — no brand colors</li>
+                <li><strong>Dashed Borders:</strong> Use dashed borders for placeholders (logos, images)</li>
+                <li><strong>Simple Shapes:</strong> Rectangles, circles, basic shapes — no detailed styling</li>
+                <li><strong>Placeholder Text:</strong> Use generic labels like "Logo", "Image", "Text Block"</li>
+                <li><strong>Focus on Structure:</strong> Show WHERE things go, not HOW they look</li>
+                <li><strong>Dimensions Matter:</strong> Include exact pixel dimensions as annotations</li>
+                <li><strong>Grid System:</strong> Always work within the 12-column grid system</li>
+                <li><strong>Component Specs:</strong> Document all component sizes and spacing</li>
+            </ul>
+        </div>
+
+        <div style="background: #dbeafe; border: 2px solid #3b82f6; border-radius: 8px; padding: 30px; margin-top: 20px;">
+            <h3 style="font-size: 18px; color: #1e40af; margin-bottom: 15px; font-weight: bold;">🎨 Prototype Differences (Task 4)</h3>
+            <ul style="color: #1e3a8a; font-size: 14px; line-height: 1.8;">
+                <li><strong>Full Brand Colors:</strong> Navy #0A2540, Teal #008C7E, Orange #FF8A2B</li>
+                <li><strong>Real Typography:</strong> Poppins 600 for headings, Inter 400 for body</li>
+                <li><strong>Actual Branding:</strong> Real TechConnect logo, not placeholder</li>
+                <li><strong>Styled Components:</strong> Fully designed buttons, cards, badges</li>
+                <li><strong>Interactive:</strong> Clickable with working navigation flows</li>
+                <li><strong>Real Content:</strong> Actual company names, realistic text</li>
+                <li><strong>Visual Effects:</strong> Shadows, hover states, transitions</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>-small">Edit</div>
+                                <div class="wf-btn-small">Invite More</div>
+                                <div class="wf-btn-small">View Responses</div>
+                            </div>
+                        </div>
+                        
+                        <div class="wf-project-card">
+                            <div class="wf-project-title"></div>
+                            <div class="wf-project-meta">
+                                <div class="wf-meta-item">Status: Closed</div>
+                                <div class="wf-meta-item">8 Invites</div>
+                                <div class="wf-meta-item">6 Matches</div>
+                            </div>
+                            <div style="display: flex; gap: 10px; margin-top: auto;">
+                                <div class="wf-btn
